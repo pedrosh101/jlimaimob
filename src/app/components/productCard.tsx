@@ -10,8 +10,9 @@ const ProductCard = ({ title, price, img }: any) => {
             <div className="relative w-80 h-56">
               <Image
                 src={img}
-                alt="Imagem 1"
+                alt="imagem"
                 fill
+                sizes="100"
                 className="object-cover"
               />
             </div>
