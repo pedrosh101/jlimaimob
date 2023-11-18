@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import Image from "next/image";
 
-const Opa = () => {
+const Item = ({ searchParams }: any) => {
   return (
-    <div>Opa4</div>
-  )
-}
+    <main>
+      <h2>{searchParams.title}</h2>
+      <p>{searchParams.price}</p>
+      <div className="relative w-80 h-56">
+        <Image src={searchParams.img} alt="background image" priority fill />
+      </div>
+    </main>
+  );
+};
 
-export default Opa
+export default Item;

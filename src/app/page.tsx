@@ -1,63 +1,37 @@
 "use client";
 
 import Image from "next/image";
-import ProductCard from "./components/productCard";
 import Link from "next/link";
+import ProductCard from "./components/productCard";
 import { useState } from "react";
-
-const products = [
-  {
-    id: 1,
-    image: "url_da_imagem1",
-    title: "Sítio na Serra da Mantiqueira",
-    price: "R$320.000,00",
-    img: "/products/1.jpg",
-    codigo: "100",
-  },
-  {
-    id: 2,
-    image: "url_da_imagem2",
-    title: "Imóvel Residencial com edícula",
-    price: "R$210.000,00",
-    img: "/products/2.jpg",
-    codigo: "101",
-  },
-  {
-    id: 3,
-    image: "url_da_imagem2",
-    title: "Imóvel Residencial",
-    price: "R$800.000,00",
-    img: "/products/3.jpg",
-    codigo: "102",
-  },
-  {
-    id: 4,
-    image: "url_da_imagem2",
-    title: "Imóvel Residencial",
-    price: "R$380.000,00",
-    img: "/products/4.jpg",
-    codigo: "103",
-  },
-];
+import { products } from "./data/products";
 
 export default function Home() {
-  const [select1Value, setSelect1Value] = useState("");
-  const [select2Value, setSelect2Value] = useState("");
-  const [searchResult, setSearchResult] = useState('');
+  const [select1Value, setSelect1Value] = useState("Aluguel");
+  const [searchResults, setSearchResults] = useState<any[]>([]);
 
   const handleSelect1Change = (e: any) => {
     setSelect1Value(e.target.value);
   };
 
-  const handleSelect2Change = (e: any) => {
-    setSelect2Value(e.target.value);
-  };
-  
   const handleSearch = () => {
-    const result = `${select1Value} e ${select2Value}`;
-    setSearchResult(result);
-  };
+    // Filtrar os produtos com base na opção selecionada
+    const filteredProducts = products.filter((product) => {
+      return product.tipo === select1Value;
+    });
 
+    // Mapear os produtos filtrados para um novo array com informações desejadas
+    const resultsWithInfo = filteredProducts.map((product) => ({
+      title: product.title,
+      price: product.price,
+      tipo: product.tipo,
+      path: product.path,
+      // Adicione outras chaves que deseja incluir aqui
+    }));
+
+    // Definir os resultados da busca
+    setSearchResults(resultsWithInfo);
+  };
 
   return (
     <>
@@ -79,25 +53,34 @@ export default function Home() {
                 onChange={handleSelect1Change}
                 className="px-4 py-2 bg-white text-black border border-l-0 border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
               >
-                <option value="aluguel">Aluguel</option>
-                <option value="compra">Compra</option>
+                <option value="Aluguel">Aluguel</option>
+                <option value="Compra">Compra</option>
               </select>
-              <select
-                value={select2Value}
-                onChange={handleSelect2Change}
-                className="px-4 py-2 bg-white text-black border border-l-0 border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
+
+              <button
+                onClick={handleSearch}
+                className="px-4 py-2 ml-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
               >
-                <option value="todos">Todos os imóveis</option>
-                <option value="apartamento">Apartamento</option>
-                <option value="casa">Casa</option>
-                <option value="chácara">Chácara</option>
-                <option value="comercial">Comercial</option>
-                <option value="sobrado">Sobrado</option>
-              </select>
-              <button onClick={handleSearch} className="px-4 py-2 ml-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
                 Buscar
               </button>
-              <div>{searchResult}</div>
+            </div>
+            <div>
+              {searchResults.length > 0 ? (
+                <ul>
+                  {searchResults.map((product, index) => (
+                    <li key={index} className="bg-neutral-200 text-black p-2">
+                      <div>
+                        <p>Nome do objeto: {product.title}</p>
+                        <p>Preço: {product.price}</p>
+                        <p>Tipo: {product.tipo}</p>
+                        <Link href={product.path}>
+                          <p>Ver detalhes</p>
+                        </Link>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
           </div>
         </div>
@@ -105,7 +88,17 @@ export default function Home() {
       <main className="flex flex-col justify-center items-center py-28 bg-slate-100">
         <div className="flex flex-wrap">
           {products.map((product) => (
-            <Link href={`/products/${product.codigo}`} key={product.id}>
+            <Link
+              href={{
+                pathname: `/products/${product.codigo}`,
+                query: {
+                  title: `${product.title}`,
+                  price: `${product.price}`,
+                  img: `${product.img}`,
+                },
+              }}
+              key={product.id}
+            >
               <ProductCard
                 title={product.title}
                 price={product.price}
