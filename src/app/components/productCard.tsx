@@ -7,7 +7,7 @@ const ProductCard = ({ title, price, img }: any) => {
       <div className="p-4">
         <div className="flex flex-col items-center text-black">
           <div className="border border-slate-300">
-            <div className="relative w-80 h-56">
+            <div className="relative w-96 h-56">
               <Image
                 src={img}
                 alt="imagem"
@@ -16,9 +16,9 @@ const ProductCard = ({ title, price, img }: any) => {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-col items-center bg-slate-100 w-80">
+            <div className="flex flex-col items-center bg-slate-100">
               <h2 className="text-lg font-semibold my-2">{title}</h2>
-              <div className="flex space-x-6 text-sm pb-2 text-gray-500">
+              <div className="flex w-full justify-between px-6 text-sm pb-2 text-gray-500">
                 <div>
                   <div className="flex space-x-1">
                     <svg

@@ -31,65 +31,56 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col">
-        <div className="relative h-screen">
-          <div className="absolute inset-0">
-            <Image src="/main5.jpg" alt="background image" priority fill />
-          </div>
-          <div className="relative z-10 flex flex-col items-center justify-center h-full">
-            <h1 className="text-6xl font-bold text-gray-200">
-              Seu novo lar está aqui{" "}
-            </h1>
-            <p className="text-3xl mt-2 text-white">
-              Experiência em gestão imobiliária
-            </p>
-            <div className="flex items-center justify-center h-16 space-x-2">
-              <select
-                value={select1Value}
-                onChange={handleSelect1Change}
-                className="px-4 py-2 bg-white text-black border border-l-0 border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
-              >
-                <option value="Aluguel">Aluguel</option>
-                <option value="Compra">Compra</option>
-              </select>
+      <main className="flex flex-col py-44 bg-white text-black">
+        <div className="relative z-10 flex flex-col items-center justify-center">
+          <h1 className="text-5xl font-bold text-blue-500 mb-4 font-sans">JLima Imóveis</h1>
+          <p className="text-5xl mt-2 font-title mb-6">Experiência e Segurança Imobiliária</p>
+          <div className="flex items-center justify-center h-16 space-x-2">
+            <select
+              value={select1Value}
+              onChange={handleSelect1Change}
+              className="px-4 rounded bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="Aluguel">Aluguel</option>
+              <option value="Compra">Compra</option>
+            </select>
 
-              <button
-                onClick={handleSearch}
-                className="px-4 py-2 ml-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
-              >
-                Buscar
-              </button>
-            </div>
-            <div>
-              {searchResults.length > 0 ? (
-                <ul>
-                  {searchResults.map((product, index) => (
-                    <li key={index} className="bg-neutral-200 text-black p-2">
-                      <div>
-                        <Link href={product.path}>
-                          <p>Nome do objeto: {product.title}</p>
-                          <p>Preço: {product.price}</p>
-                        </Link>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-            </div>
+            <button
+              onClick={handleSearch}
+              className="px-4 py-2 ml-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+            >
+              Buscar
+            </button>
+          </div>
+          <div>
+            {searchResults.length > 0 ? (
+              <ul>
+                {searchResults.map((product, index) => (
+                  <li key={index} className="bg-neutral-200 text-black p-2">
+                    <div>
+                      <Link href={product.path}>
+                        <p>Nome do objeto: {product.title}</p>
+                        <p>Preço: {product.price}</p>
+                      </Link>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
         </div>
       </main>
 
       {/* produtos da página inicial cards */}
 
-      <main className="flex flex-col justify-center items-center py-28 bg-slate-100">
+      <main className="flex flex-col justify-center items-center py-12 bg-white">
         <div className="flex flex-wrap">
           {products.map((product) => (
             <Link
+              key={product.id}
               href={{
                 pathname: `/products/${product.codigo}`,
               }}
-              key={product.id}
             >
               <ProductCard
                 title={product.title}
