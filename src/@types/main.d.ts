@@ -2,6 +2,6 @@ export type ImovelProp = {
   id?: number;
   title?: string;
   img?: string;
-  price?: number;
+  price?: string;
   description?: string;
 };

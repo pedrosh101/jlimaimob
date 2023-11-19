@@ -15,22 +15,18 @@ export default function Home() {
   };
 
   const handleSearch = () => {
-    // Filtrar os produtos com base na opção selecionada
-    const filteredProducts = products.filter((product) => {
+    const produtosFiltrados = products.filter((product) => {
       return product.tipo === select1Value;
     });
 
-    // Mapear os produtos filtrados para um novo array com informações desejadas
-    const resultsWithInfo = filteredProducts.map((product) => ({
+    const resultados = produtosFiltrados.map((product) => ({
       title: product.title,
       price: product.price,
       tipo: product.tipo,
       path: product.path,
-      // Adicione outras chaves que deseja incluir aqui
     }));
 
-    // Definir os resultados da busca
-    setSearchResults(resultsWithInfo);
+    setSearchResults(resultados);
   };
 
   return (
@@ -70,11 +66,9 @@ export default function Home() {
                   {searchResults.map((product, index) => (
                     <li key={index} className="bg-neutral-200 text-black p-2">
                       <div>
-                        <p>Nome do objeto: {product.title}</p>
-                        <p>Preço: {product.price}</p>
-                        <p>Tipo: {product.tipo}</p>
                         <Link href={product.path}>
-                          <p>Ver detalhes</p>
+                          <p>Nome do objeto: {product.title}</p>
+                          <p>Preço: {product.price}</p>
                         </Link>
                       </div>
                     </li>
@@ -85,17 +79,15 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* produtos da página inicial cards */}
+
       <main className="flex flex-col justify-center items-center py-28 bg-slate-100">
         <div className="flex flex-wrap">
           {products.map((product) => (
             <Link
               href={{
                 pathname: `/products/${product.codigo}`,
-                query: {
-                  title: `${product.title}`,
-                  price: `${product.price}`,
-                  img: `${product.img}`,
-                },
               }}
               key={product.id}
             >

@@ -1,6 +1,6 @@
 export const products = [
   {
-    id: 1,
+    id: 100,
     title: "Sítio na Serra da Mantiqueira",
     price: "R$320.000,00",
     img: "/products/1.jpg",
@@ -9,7 +9,7 @@ export const products = [
     path: '../products/100'
   },
   {
-    id: 2,
+    id: 101,
     title: "Imóvel Residencial com edícula",
     price: "R$210.000,00",
     img: "/products/2.jpg",
@@ -18,7 +18,7 @@ export const products = [
     path: '../products/101'
   },
   {
-    id: 3,
+    id: 102,
     title: "Imóvel Residencial Vila Paraiba",
     price: "R$800.000,00",
     img: "/products/3.jpg",
@@ -27,7 +27,7 @@ export const products = [
     path: '../products/102'
   },
   {
-    id: 4,
+    id: 103,
     title: "Imóvel Residencial para Locar",
     price: "R$2.000,00",
     img: "/products/4.jpg",

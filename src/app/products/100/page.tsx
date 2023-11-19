@@ -1,10 +1,21 @@
 import Imovel from '@/app/components/templateImovel'
 import React from 'react'
+import { products } from '@/app/data/products'
 
-const Opa = () => {
+const Item = () => {
+  const item = products[0];
+
   return (
-    <Imovel title='Casa' />
+    <div>
+      <Imovel
+        key={item.id}
+        title={item.title}
+        img={item.img}
+        price={item.price}
+      />
+    </div>
   )
 }
 
-export default Opa
+export default Item;
+

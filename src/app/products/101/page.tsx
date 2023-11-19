@@ -1,16 +1,21 @@
-import React from "react";
-import Image from "next/image";
+import Imovel from '@/app/components/templateImovel'
+import React from 'react'
+import { products } from '@/app/data/products'
 
-const Item = ({ searchParams }: any) => {
+const Item = () => {
+  const item = products[1];
+
   return (
-    <main>
-      <h2>{searchParams.title}</h2>
-      <p>{searchParams.price}</p>
-      <div className="relative w-80 h-56">
-        <Image src={searchParams.img} alt="background image" priority fill />
-      </div>
-    </main>
-  );
-};
+    <div>
+      <Imovel
+        key={item.id}
+        title={item.title}
+        img={item.img}
+        price={item.price}
+      />
+    </div>
+  )
+}
 
 export default Item;
+
