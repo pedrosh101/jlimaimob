@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "./components/productCard";
 import { useState } from "react";
-import { products } from "./data/products";
+import { imoveis } from "./data/imoveis";
+import Navbar from "./components/navbar";
 
 export default function Home() {
   const [select1Value, setSelect1Value] = useState("Aluguel");
@@ -15,7 +15,7 @@ export default function Home() {
   };
 
   const handleSearch = () => {
-    const produtosFiltrados = products.filter((product) => {
+    const produtosFiltrados = imoveis.filter((product) => {
       return product.tipo === select1Value;
     });
 
@@ -31,15 +31,20 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex flex-col py-44 bg-white text-black">
-        <div className="relative z-10 flex flex-col items-center justify-center">
-          <h1 className="text-5xl font-bold text-blue-500 mb-4 font-sans">JLima Imóveis</h1>
-          <p className="text-5xl mt-2 font-title mb-6">Experiência e Segurança Imobiliária</p>
+      <Navbar />
+      <main className="flex flex-col py-40 bg-white text-black">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold text-blue-700 mb-4 font-sans">
+            JLima Imóveis
+          </h1>
+          <p className="text-2xl sm:text-5xl mt-2 font-title mb-6">
+            Experiência e Segurança Imobiliária
+          </p>
           <div className="flex items-center justify-center h-16 space-x-2">
             <select
               value={select1Value}
               onChange={handleSelect1Change}
-              className="px-4 rounded bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="px-4 rounded bg-gray-50 border border-gray-300 text-gray-900  focus:ring-blue-700 focus:border-blue-700 block w-full p-2.5 dark:bg-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="Aluguel">Aluguel</option>
               <option value="Compra">Compra</option>
@@ -47,7 +52,7 @@ export default function Home() {
 
             <button
               onClick={handleSearch}
-              className="px-4 py-2 ml-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+              className="px-4 py-2 ml-2 text-white bg-blue-700 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
             >
               Buscar
             </button>
@@ -56,11 +61,11 @@ export default function Home() {
             {searchResults.length > 0 ? (
               <ul>
                 {searchResults.map((product, index) => (
-                  <li key={index} className="bg-neutral-200 text-black p-2">
+                  <li key={index} className="bg-neutral-200 m-2 text-black p-2">
                     <div>
                       <Link href={product.path}>
-                        <p>Nome do objeto: {product.title}</p>
-                        <p>Preço: {product.price}</p>
+                        <p>{product.title}</p>
+                        <p>{product.price}</p>
                       </Link>
                     </div>
                   </li>
@@ -75,11 +80,11 @@ export default function Home() {
 
       <main className="flex flex-col justify-center items-center py-12 bg-white">
         <div className="flex flex-wrap">
-          {products.map((product) => (
+          {imoveis.map((product) => (
             <Link
               key={product.id}
               href={{
-                pathname: `/products/${product.codigo}`,
+                pathname: `/imoveis/${product.codigo}`,
               }}
             >
               <ProductCard
