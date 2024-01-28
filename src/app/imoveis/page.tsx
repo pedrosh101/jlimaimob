@@ -8,12 +8,12 @@ const ImoveisPage: React.FC = () => {
   const { searchResults } = useSearchStore();
 
   return (
-    <div>
-      <h1>Resultados da Pesquisa</h1>
+    <div className='bg-gray-400 text-black min-h-screen p-8'>
+      <h1 className='text-2xl'>Resultados da Pesquisa</h1>
       {searchResults.length > 0 ? (
         <ul>
-          {searchResults.map((product, index) => (
-            <li key={index} className="bg-neutral-200 m-2 text-black p-2">
+          {searchResults.map((product: any, index:any) => (
+            <li key={index} className="bg-neutral-200 m-2 text-black p-2 w-96">
               <div>
                 <Link href={product.path}>
                   <p>{product.title}</p>
