@@ -26,7 +26,7 @@ export default function Home() {
       {/* produtos da página inicial cards */}
 
       <main className="flex flex-col justify-center items-center py-12 bg-white">
-        <div className="flex flex-wrap">
+        <div className="flex justify-center flex-wrap md:grid grid-cols-4 max-[1600px]:grid-cols-3 max-[1400px]:grid-cols-2">
           {imoveis.map((product) => (
             <Link
               key={product.id}

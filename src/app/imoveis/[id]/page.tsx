@@ -84,7 +84,7 @@ const ProjetoDetalhes = ({ params }: any) => {
         <section className="flex flex-col sm:flex-row px-1 pt-10 sm:px-96 ">
           {/* coluna da esquerda */}
 
-          <div className="flex flex-col w-1/2">
+          <div className="flex flex-col sm:w-1/2 sm:px-0 px-4">
             <h1 className="text-3xl font-bold mb-2">{proj?.title}</h1>
             <div className="flex space-x-1 mb-6">
               <svg
@@ -193,7 +193,7 @@ const ProjetoDetalhes = ({ params }: any) => {
 
           {/* coluna direita */}
 
-          <div className="flex flex-col text-lg mt-8 sm:mt-0 shadow-md p-4 w-1/2 h-fit">
+          <div className="flex flex-col text-lg mt-8 sm:mt-0 shadow-md p-4 sm:w-1/2 h-fit sm:px-0 px-4">
             <h1 className="mb-4 text-center">Cód do Imóvel: 4255</h1>
             <div className="bg-gray-200 h-0.5 w-full"></div>
             <div className="flex justify-between px-16 pt-6">
