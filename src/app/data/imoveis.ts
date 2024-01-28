@@ -30,7 +30,7 @@ export const imoveis = [
   },
   {
     id: 102,
-    title: "Imóvel Residencial Vila Paraiba",
+    title: "Imóvel Residencial na Vila Paraiba",
     price: "R$800.000,00",
     img: "/imoveis/3.jpg",
     codigo: "102",
