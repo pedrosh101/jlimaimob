@@ -10,6 +10,6 @@ type SearchStore = {
 export const useSearchStore = create<SearchStore>((set) => ({
   select1Value: "Aluguel",
   searchResults: [],
-  setSelect1Value: (value: setSelect1Value) => set({ select1Value: value }),
+  setSelect1Value: (value: any) => set({ select1Value: value }),
   setSearchResults: (results: any) => set({ searchResults: results }),
 }));
