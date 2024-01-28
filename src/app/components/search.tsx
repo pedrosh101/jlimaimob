@@ -5,11 +5,10 @@ import { imoveis } from "../data/imoveis";
 import Link from "next/link";
 import { useSearchStore } from "../store/searchStore";
 
-export default function Search() {
-
+const Search: React.FC = () => {
   const { select1Value, setSelect1Value, setSearchResults } = useSearchStore();
 
-  const handleSelect1Change = (e:any) => {
+  const handleSelect1Change = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelect1Value(e.target.value);
   };
 
@@ -53,3 +52,5 @@ export default function Search() {
     </>
   );
 }
+
+export default Search;
