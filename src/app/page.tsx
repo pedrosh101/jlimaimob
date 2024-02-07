@@ -5,9 +5,9 @@ import ProductCard from "./components/productCard";
 import { imoveis } from "./data/imoveis";
 import Navbar from "./components/navbar";
 import Search from "./components/search";
-import { Suspense } from "react";
 
 export default function Home() {
+
   return (
     <>
       <Navbar />
@@ -19,9 +19,7 @@ export default function Home() {
           <p className="text-2xl sm:text-5xl mt-2 font-title mb-6">
             Experiência e Segurança Imobiliária
           </p>
-          <Suspense>
-            <Search />
-          </Suspense>
+          <Search />
         </div>
       </main>
 
