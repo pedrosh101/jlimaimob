@@ -1,23 +1,30 @@
 "use client";
 // pages/imoveis.tsx
+// pages/imoveis.tsx
+// pages/imoveis.tsx
 import React from 'react';
-import {useSearchStore} from '../store/searchStore';
+import { imoveis } from "../data/imoveis";
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 const ImoveisPage: React.FC = () => {
-  const { searchResults } = useSearchStore();
+  const searchParams = useSearchParams();
+  const tipo = searchParams.get('tipo');
+
+  // Filtrar os imóveis com base no tipo selecionado na URL
+  const filteredImoveis = tipo ? imoveis.filter((imovel) => imovel.tipo === tipo) : [];
 
   return (
     <div className='bg-gray-400 text-black min-h-screen p-8'>
       <h1 className='text-2xl'>Resultados da Pesquisa</h1>
-      {searchResults.length > 0 ? (
+      {filteredImoveis.length > 0 ? (
         <ul>
-          {searchResults.map((product: any, index:any) => (
+          {filteredImoveis.map((imovel, index) => (
             <li key={index} className="bg-neutral-200 m-2 text-black p-2 w-96">
               <div>
-                <Link href={product.path}>
-                  <p>{product.title}</p>
-                  <p>{product.price}</p>
+                <Link href={imovel.path}>
+                  <p>{imovel.title}</p>
+                  <p>{imovel.price}</p>
                 </Link>
               </div>
             </li>
