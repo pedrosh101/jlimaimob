@@ -5,6 +5,9 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
   theme: {
     extend: {
       backgroundImage: {
@@ -16,6 +19,7 @@ module.exports = {
         'raleway': ['Raleway', 'sans-serif'],
         title: ["title"]
       },
+      
     },
   },
   plugins: [],

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React from "react";
 import { imoveis } from "../data/imoveis";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -15,7 +15,7 @@ const ImoveisPage: React.FC = () => {
     : [];
 
   return (
-    <Suspense>
+
       <div className="bg-gray-400 text-black min-h-screen p-8">
         <h1 className="text-2xl">Resultados da Pesquisa</h1>
         {filteredImoveis.length > 0 ? (
@@ -38,7 +38,7 @@ const ImoveisPage: React.FC = () => {
           <p>Nenhum resultado encontrado.</p>
         )}
       </div>
-    </Suspense>
+
   );
 };
 
