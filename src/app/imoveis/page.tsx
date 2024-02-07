@@ -1,3 +1,5 @@
+"use client";
+
 import React, { Suspense } from "react";
 import { imoveis } from "../data/imoveis";
 import Link from "next/link";
@@ -7,7 +9,6 @@ const ImoveisPage: React.FC = () => {
   const searchParams = useSearchParams();
   const tipo = searchParams.get("tipo");
 
-  // Filtrar os imóveis com base no tipo selecionado na URL
   const filteredImoveis = tipo
     ? imoveis.filter((imovel) => imovel.tipo === tipo)
     : [];
