@@ -9,8 +9,12 @@ const ImoveisPage: React.FC = () => {
   const searchParams = useSearchParams();
   const tipo = searchParams.get("tipo");
 
-  const filteredImoveis = tipo
-    ? imoveis.filter((imovel) => imovel.tipo === tipo)
+
+  const tipoFiltrado = typeof tipo === 'string' ? tipo : null;
+
+
+  const filteredImoveis = tipoFiltrado
+    ? imoveis.filter((imovel) => imovel.tipo === tipoFiltrado)
     : [];
 
   return (
@@ -42,3 +46,4 @@ const ImoveisPage: React.FC = () => {
 };
 
 export default ImoveisPage;
+
