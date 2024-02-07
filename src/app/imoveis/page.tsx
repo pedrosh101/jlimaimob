@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { imoveis } from "../data/imoveis";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -13,8 +13,9 @@ const ImoveisPage: React.FC = () => {
     : [];
 
   return (
-      <div className="bg-gray-400 text-black min-h-screen p-8">
-        <h1 className="text-2xl">Resultados da Pesquisa</h1>
+    <div className="bg-gray-400 text-black min-h-screen p-8">
+      <h1 className="text-2xl">Resultados da Pesquisa</h1>
+      <Suspense fallback={<div>Carregando...</div>}>
         {filteredImoveis.length > 0 ? (
           <ul>
             {filteredImoveis.map((imovel, index) => (
@@ -34,7 +35,8 @@ const ImoveisPage: React.FC = () => {
         ) : (
           <p>Nenhum resultado encontrado.</p>
         )}
-      </div>
+      </Suspense>
+    </div>
   );
 };
 
