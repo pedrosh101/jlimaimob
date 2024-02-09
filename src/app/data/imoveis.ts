@@ -1,17 +1,19 @@
 export const imoveis = [
   {
     id: 100,
-    title: "Sítio na Serra da Mantiqueira",
-    price: "R$320.000,00",
-    img: "/imoveis/1.jpg",
+    title: "Casa para Locação com 2 Quartos",
+    price: "R$1.400,00",
+    img: "/imoveis/imv1/1.jpg",
     codigo: "100",
-    tipo: 'Compra',
+    tipo: 'Aluguel',
     path: '../imoveis/100',
     location: "Guaratinguetá-SP",
-    info1: "3 Quartos",
+    adress: "Rua Guaicurus, 372 - Pedregulho",
+    info1: "2 Quartos",
     info2: "1 Vaga",
     info3: "Sala",
-    info4: "2 Banheiros",
+    info4: "1 Banheiro",
+    desc: "Imóvel bem localizado em bairro tradicional de Guaratinguetá"
 
   },
   {

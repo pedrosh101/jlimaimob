@@ -178,15 +178,7 @@ const ProjetoDetalhes = ({ params }: any) => {
             <div className="sm:w-4/5 pt-6">
               <h1 className="text-lg pb-2">Descrição do Imóvel:</h1>
               <h1>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                bibendum vel est sit amet imperdiet. Nulla et sem sapien. Mauris
-                vitae enim at felis viverra faucibus fermentum non diam. Nam
-                feugiat leo magna, non scelerisque neque convallis et.
-                Vestibulum dictum ut ex sit amet fermentum. Vestibulum tincidunt
-                tempor sem, vel malesuada libero porttitor nec. Proin efficitur,
-                elit in sodales egestas, orci purus volutpat quam, nec cursus
-                metus arcu vel ligula. Pellentesque velit quam, vestibulum eget
-                fringilla non, hendrerit a lectus.
+                {proj?.desc}
               </h1>
             </div>
           </div>
@@ -194,19 +186,19 @@ const ProjetoDetalhes = ({ params }: any) => {
           {/* coluna direita */}
 
           <div className="flex flex-col text-lg mt-8 sm:mt-0 shadow-md p-4 sm:w-1/2 h-fit sm:px-0 px-4">
-            <h1 className="mb-4 text-center">Cód do Imóvel: 4255</h1>
+            <h1 className="mb-4 text-center">Cód do Imóvel: {proj?.codigo}</h1>
             <div className="bg-gray-200 h-0.5 w-full"></div>
             <div className="flex justify-between px-16 pt-6">
               <h1>Preço</h1>
-              <h1 className="font-semibold text-blue-700">R$200.000,00</h1>
+              <h1 className="font-semibold text-blue-700">{proj?.price}</h1>
             </div>
             <div className="flex text-sm justify-between px-16 pt-4 text-gray-600">
               <h1>Condomínio</h1>
-              <h1 className="">R$300,00</h1>
+              <h1 className=""></h1>
             </div>
             <div className="flex text-sm justify-between px-16 pt-4 text-gray-600">
               <h1>IPTU</h1>
-              <h1 className="">R$950,00</h1>
+              <h1 className=""></h1>
             </div>
             <div className="bg-gray-200 h-0.5 w-full mt-4"></div>
           </div>

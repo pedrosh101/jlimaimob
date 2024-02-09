@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white text-black py-6 px-8">
-      <div className="flex justify-center items-center text-sm font-medium">
+      <div className="flex md:justify-center md:items-center text-sm font-medium">
         {/* Hamburger Menu */}
         <div className="lg:hidden">
           <button onClick={toggleMenu} className="">

@@ -5,17 +5,25 @@ import ProductCard from "./components/productCard";
 import { imoveis } from "./data/imoveis";
 import Navbar from "./components/navbar";
 import Search from "./components/search";
+import Logo from "../../public/imoveis/logo.png";
+import Image from "next/image";
 
 export default function Home() {
-
   return (
     <>
       <Navbar />
-      <main className="flex flex-col py-40 bg-white text-black">
+      <main className="flex flex-col py-36 bg-white text-black">
         <div className="relative z-10 flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-blue-700 mb-4 font-sans">
-            JLima Imóveis
-          </h1>
+
+          <Image
+            src={Logo}
+            alt="Imagem"
+
+            width={310}
+            height={310}
+
+          ></Image>
+
           <p className="text-2xl sm:text-5xl mt-2 font-title mb-6">
             Experiência e Segurança Imobiliária
           </p>
