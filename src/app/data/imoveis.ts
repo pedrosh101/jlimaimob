@@ -13,7 +13,8 @@ export const imoveis = [
     info2: "1 Vaga",
     info3: "Sala",
     info4: "1 Banheiro",
-    desc: "Imóvel bem localizado em bairro tradicional de Guaratinguetá"
+    desc: "Imóvel bem localizado em bairro tradicional de Guaratinguetá",
+    size: "80m²"
 
   },
   {
@@ -29,6 +30,7 @@ export const imoveis = [
     info2: "1 Vaga",
     info3: "Sala",
     info4: "2 Banheiros",
+    size: "130m²"
   },
   {
     id: 102,
@@ -43,6 +45,7 @@ export const imoveis = [
     info2: "1 Vaga",
     info3: "Sala",
     info4: "2 Banheiros",
+    size: "70m²"
   },
   {
     id: 103,
@@ -57,5 +60,6 @@ export const imoveis = [
     info2: "1 Vaga",
     info3: "Sala",
     info4: "2 Banheiros",
+    size: "120m²"
   },
 ];

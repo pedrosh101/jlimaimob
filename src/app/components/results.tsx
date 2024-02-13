@@ -16,7 +16,7 @@ const Results = () => {
   return (
     <>
       {filteredImoveis.length > 0 ? (
-        <ul className="flex flex-col sm:flex-row">
+        <ul className="flex flex-col sm:flex-row flex-wrap items-center gap-4 mt-6">
           {filteredImoveis.map((imovel, index) => (
             <li key={index} className="text-black flex">
               <div className="flex w-full">
@@ -25,6 +25,10 @@ const Results = () => {
                     title={imovel.title}
                     price={imovel.price}
                     img={imovel.img}
+                    tipo={imovel.tipo}
+                    info1={imovel.info1}
+                    info2={imovel.info2}
+                    size={imovel.size}
                   />
                 </Link>
               </div>

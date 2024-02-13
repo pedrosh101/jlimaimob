@@ -16,6 +16,9 @@ module.exports = {
         'raleway': ['Raleway', 'sans-serif'],
         title: ["title"]
       },
+      colors:{
+        clr1: "#1a1266"
+      }
       
     },
   },

@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-const ProductCard = ({ title, price, img }: any) => {
+const ProductCard = ({ title, price, img, tipo, info1, info2, size }: any) => {
   return (
     <>
-      <div className="p-4">
+      <div className="">
         <div className="flex flex-col items-center text-black">
           <div className="border border-slate-300">
             <div className="relative w-96 h-56">
@@ -36,7 +36,7 @@ const ProductCard = ({ title, price, img }: any) => {
                       />
                     </svg>
 
-                    <p className=" my-1">Venda</p>
+                    <p className=" my-1">{tipo}</p>
                   </div>
                   <div className="flex space-x-1">
                     <svg
@@ -54,12 +54,12 @@ const ProductCard = ({ title, price, img }: any) => {
                       />
                     </svg>
 
-                    <p className=" my-1">20.000²</p>
+                    <p className=" my-1">{size}</p>
                   </div>
                 </div>
                 <div>
-                  <p className=" my-1">Vista panorâmica</p>
-                  <p className=" my-1">Documentação em dia</p>
+                  <p className=" my-1">{info1}</p>
+                  <p className=" my-1">{info2}</p>
                 </div>
               </div>
               <div className="w-11/12 h-0.5 bg-gray-300"></div>
