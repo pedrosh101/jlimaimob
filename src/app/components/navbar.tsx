@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white text-black py-6 px-8">
+    <nav className="relative bg-white text-black py-6 px-8">
       <div className="flex md:justify-center justify-end md:items-center text-sm font-medium">
         {/* Hamburger Menu */}
         <div className="lg:hidden">
@@ -58,19 +58,17 @@ const Navbar = () => {
         </div>
       </div>
       {/* Mobile Dropdown Menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden mt-4">
-          <Link href="/">
-            <p className="block my-2">Início</p>
-          </Link>
-          <Link href="/sobre">
-            <p className="block my-2">Sobre</p>
-          </Link>
-          <a href="https://wa.me/5512991510984" target="_blank">
-            <p>Anuncie Conosco</p>
-          </a>
-        </div>
-      )}
+      <div className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'} absolute top-full left-0 w-full bg-white text-black px-8 z-30 pb-4 border-b-2 border-clr1`}>
+        <Link href="/">
+          <p className="block my-2">Início</p>
+        </Link>
+        <Link href="/sobre">
+          <p className="block my-2">Sobre</p>
+        </Link>
+        <a href="https://wa.me/5512991510984" target="_blank">
+          <p>Anuncie Conosco</p>
+        </a>
+      </div>
     </nav>
   );
 };
